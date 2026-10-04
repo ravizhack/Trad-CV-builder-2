@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trad CV Builder — Professional CV Creator</title>
+  <meta name="description" content="Create stunning traditional & visual CVs with ease. Trad CV Builder offers beautiful templates, full design control, and real-time preview." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/cv-preview.css" />
+</head>
+<body class="dashboard-page">
+
+  <!-- Animated Background -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header" id="appHeader">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" rx="8" fill="url(#brandGrad)"/>
+            <path d="M7 8h14M7 12h10M7 16h12M7 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="28" y2="28">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">Trad <span class="brand-accent">CV</span> Builder</span>
+      </div>
+      <nav class="header-nav">
+        <button class="nav-btn active" id="navDashboard">Dashboard</button>
+        <button class="nav-btn" id="navTemplates" onclick="showScreen('templateScreen')">Templates</button>
+        <button class="nav-btn" id="navHelp">Help</button>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-primary" id="createNewCvBtn" onclick="startNewCV()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          New CV
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCREEN: Dashboard
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="screen active" id="dashboardScreen">
+    <div class="dashboard-hero">
+      <div class="hero-content">
+        <div class="hero-badge">✨ Visual CV Designer</div>
+        <h1 class="hero-title">Create Your Perfect<br/><span class="gradient-text">Traditional CV</span></h1>
+        <p class="hero-subtitle">Design beautiful, professional CVs with full visual control — not just a form filler.</p>
+        <div class="hero-actions">
+          <button class="btn-hero-primary" onclick="startNewCV()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2v16M2 10h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            Create New CV
+          </button>
+          <button class="btn-hero-secondary" onclick="showScreen('templateScreen')">Browse Templates</button>
+          <button class="btn-hero-secondary" onclick="loadSampleCV()" title="Load Thisara Sewwanda Konara sample CV">🌟 Load Demo CV</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Templates</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">13</span><span class="stat-label">Sections</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">PDF</span><span class="stat-label">Export</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="cv-mockup">
+          <div class="mockup-header-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <div class="mockup-cv">
+            <div class="mockup-left">
+              <div class="mockup-photo"></div>
+              <div class="mockup-line short"></div>
+              <div class="mockup-line shorter"></div>
+              <div class="mockup-section-title"></div>
+              <div class="mockup-line"></div>
+              <div class="mockup-line short"></div>
+              <div class="mockup-section-title"></div>
+              <div class="mockup-skill"><div class="skill-bar" style="width:90%"></div></div>
+              <div class="mockup-skill"><div class="skill-bar" style="width:75%"></div></div>
+              <div class="mockup-skill"><div class="skill-bar" style="width:85%"></div></div>
+            </div>
+            <div class="mockup-right">
+              <div class="mockup-name"></div>
+              <div class="mockup-title-bar"></div>
+              <div class="mockup-section-title-r"></div>
+              <div class="mockup-line-r"></div>
+              <div class="mockup-line-r short-r"></div>
+              <div class="mockup-line-r"></div>
+              <div class="mockup-section-title-r"></div>
+              <div class="mockup-exp-item"></div>
+              <div class="mockup-line-r short-r"></div>
+              <div class="mockup-line-r"></div>
+              <div class="mockup-exp-item"></div>
+              <div class="mockup-line-r short-r"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My CVs Section -->
+    <div class="dashboard-section">
+      <div class="section-header">
+        <h2 class="section-title">My CVs</h2>
+        <div class="section-actions">
+          <input type="text" class="search-input" id="cvSearchInput" placeholder="Search CVs..." oninput="filterCVs(this.value)" />
+          <button class="btn-icon" title="Grid view" id="viewGrid" onclick="setView('grid')" style="opacity:1">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="10" y="1" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="1" y="10" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="10" y="10" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+          </button>
+          <button class="btn-icon" title="List view" id="viewList" onclick="setView('list')" style="opacity:0.4">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cv-grid" id="cvGrid">
+        <!-- CV cards rendered by JS -->
+        <div class="cv-empty-state" id="cvEmptyState">
+          <div class="empty-icon">📄</div>
+          <h3>No CVs yet</h3>
+          <p>Create your first professional CV or start with a pre-filled sample</p>
+          <div style="display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="startNewCV()">Create First CV</button>
+            <button class="btn-secondary" onclick="loadSampleCV()" style="border:1px solid rgba(255,255,255,0.2);padding:10px 18px;border-radius:10px;background:rgba(255,255,255,0.08);color:white;cursor:pointer;font-weight:600;font-size:0.875rem;">🌟 Load Sample CV</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCREEN: Template Selection
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="screen" id="templateScreen">
+    <div class="screen-inner">
+      <div class="screen-top-bar">
+        <button class="back-btn" onclick="showScreen('dashboardScreen')">← Back</button>
+        <h2 class="screen-heading">Choose Your Template</h2>
+        <div class="template-filters">
+          <button class="filter-btn active" data-filter="all" onclick="filterTemplates('all',this)">All</button>
+          <button class="filter-btn" data-filter="classic" onclick="filterTemplates('classic',this)">Classic</button>
+          <button class="filter-btn" data-filter="modern" onclick="filterTemplates('modern',this)">Modern</button>
+          <button class="filter-btn" data-filter="creative" onclick="filterTemplates('creative',this)">Creative</button>
+        </div>
+      </div>
+      <div class="templates-grid" id="templatesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCREEN: CV Editor (Main Editor)
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="screen" id="editorScreen" style="display:none">
+    <div class="editor-layout">
+
+      <!-- Left: Section Nav -->
+      <aside class="editor-sidebar" id="editorSidebar">
+        <div class="sidebar-top">
+          <button class="back-btn small" onclick="showScreen('dashboardScreen')">← Exit</button>
+          <div class="cv-name-display" id="cvNameDisplay">My CV</div>
+        </div>
+        <nav class="section-nav" id="sectionNav">
+          <!-- Rendered by JS -->
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="sidebar-btn design-btn" onclick="showScreen('designScreen')">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 2.5a1.5 1.5 0 0 1 0 2.121L5.621 12.5 2.5 13.5l1-3.121L11.379 2.5a1.5 1.5 0 0 1 2.121 0Z" stroke="currentColor" stroke-width="1.5"/></svg>
+            Design & Theme
+          </button>
+          <button class="sidebar-btn preview-btn" onclick="openPreview()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8s3-5 7-5 7 5 7 5-3 5-7 5-7-5-7-5Z" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+            Preview CV
+          </button>
+          <button class="sidebar-btn save-btn" onclick="saveCV()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 13H3a1 1 0 0 1-1-1V4l3-2h7l2 2v8a1 1 0 0 1-1 1ZM5 13V9h6v4" stroke="currentColor" stroke-width="1.5"/></svg>
+            Save CV
+          </button>
+        </div>
+      </aside>
+
+      <!-- Middle: Form Panel -->
+      <div class="editor-form-panel" id="editorFormPanel">
+        <div class="form-panel-inner" id="formPanelInner">
+          <!-- Dynamic form rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Right: Live Preview -->
+      <div class="editor-preview-panel" id="editorPreviewPanel">
+        <div class="preview-toolbar">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="preview-label">Live Preview</span>
+            <span class="page-fit-badge" id="pageFitBadge" title="Guaranteed Single A4 Page format">📄 1 Page A4</span>
+          </div>
+          <div class="preview-zoom-controls">
+            <button class="zoom-btn" onclick="zoomPreview(-0.1)">−</button>
+            <span class="zoom-label" id="zoomLabel">75%</span>
+            <button class="zoom-btn" onclick="zoomPreview(0.1)">+</button>
+          </div>
+          <button class="btn-toggle-margins" id="btnToggleMargins" onclick="toggleSafeMarginGuide()" title="Toggle 2cm Safe Print Margin Guidelines">📐 Safe Margin</button>
+          <button class="btn-export-sm" onclick="downloadPDF()" style="background:linear-gradient(135deg,#10b981,#059669);">⬇ Download PDF</button>
+          <button class="btn-export-sm" onclick="printCV()" style="background:linear-gradient(135deg,#6366f1,#4f46e5);">🖨 Print</button>
+        </div>
+        <div class="preview-scroll-area">
+          <div class="preview-scale-wrapper" id="previewScaleWrapper">
+            <div class="cv-preview-page" id="cvPreviewPage">
+              <!-- Live CV preview rendered here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCREEN: Design & Theme
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="screen" id="designScreen">
+    <div class="screen-inner">
+      <div class="screen-top-bar">
+        <button class="back-btn" onclick="showScreen('editorScreen')">← Back to Editor</button>
+        <h2 class="screen-heading">Design & Customize</h2>
+        <button class="btn-primary" onclick="showScreen('editorScreen')">Apply & Preview</button>
+      </div>
+      <div class="design-layout">
+        <div class="design-controls">
+
+          <!-- Color Theme -->
+          <div class="design-card">
+            <h3 class="design-card-title">🎨 Color Theme</h3>
+            <div class="preset-themes" id="presetThemes">
+              <!-- Rendered by JS -->
+            </div>
+            <div class="color-pickers">
+              <div class="color-row">
+                <label>Primary Color</label>
+                <input type="color" id="colorPrimary" value="#1a2744" oninput="applyDesign()" />
+              </div>
+              <div class="color-row">
+                <label>Secondary / Accent</label>
+                <input type="color" id="colorSecondary" value="#c9a84c" oninput="applyDesign()" />
+              </div>
+              <div class="color-row">
+                <label>Background</label>
+                <input type="color" id="colorBg" value="#ffffff" oninput="applyDesign()" />
+              </div>
+              <div class="color-row">
+                <label>Body Text</label>
+                <input type="color" id="colorText" value="#333333" oninput="applyDesign()" />
+              </div>
+              <div class="color-row">
+                <label>Heading Color</label>
+                <input type="color" id="colorHeading" value="#1a2744" oninput="applyDesign()" />
+              </div>
+              <div class="color-row">
+                <label>Skill Bar Color</label>
+                <input type="color" id="colorBar" value="#c9a84c" oninput="applyDesign()" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Typography -->
+          <div class="design-card">
+            <h3 class="design-card-title">🔤 Typography</h3>
+            <div class="font-row">
+              <label>Name Font</label>
+              <select id="fontName" onchange="applyDesign()">
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Outfit', sans-serif" selected>Outfit</option>
+                <option value="'Poppins', sans-serif">Poppins</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="'Times New Roman', serif">Times New Roman</option>
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Calibri, sans-serif">Calibri</option>
+              </select>
+            </div>
+            <div class="font-row">
+              <label>Heading Font</label>
+              <select id="fontHeading" onchange="applyDesign()">
+                <option value="'Outfit', sans-serif" selected>Outfit</option>
+                <option value="'Poppins', sans-serif">Poppins</option>
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Calibri, sans-serif">Calibri</option>
+              </select>
+            </div>
+            <div class="font-row">
+              <label>Body Font</label>
+              <select id="fontBody" onchange="applyDesign()">
+                <option value="'Poppins', sans-serif">Poppins</option>
+                <option value="'Outfit', sans-serif" selected>Outfit</option>
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Calibri, sans-serif">Calibri</option>
+                <option value="Georgia, serif">Georgia</option>
+              </select>
+            </div>
+            <div class="font-size-controls">
+              <div class="font-size-row">
+                <label>Name Size</label>
+                <input type="range" id="sizeNameFont" min="18" max="42" value="30" oninput="updateSizeLabel('sizeNameFont','sizeNameLabel'); applyDesign()" />
+                <span id="sizeNameLabel">30px</span>
+              </div>
+              <div class="font-size-row">
+                <label>Section Heading</label>
+                <input type="range" id="sizeSectionFont" min="9" max="16" value="11" oninput="updateSizeLabel('sizeSectionFont','sizeSectionLabel'); applyDesign()" />
+                <span id="sizeSectionLabel">11px</span>
+              </div>
+              <div class="font-size-row">
+                <label>Body Text</label>
+                <input type="range" id="sizeBodyFont" min="7" max="13" value="9" oninput="updateSizeLabel('sizeBodyFont','sizeBodyLabel'); applyDesign()" />
+                <span id="sizeBodyLabel">9px</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layout -->
+          <div class="design-card">
+            <h3 class="design-card-title">📐 Layout</h3>
+            <div class="layout-options">
+              <label class="layout-option">
+                <input type="radio" name="layout" value="two-column" id="layoutTwoCol" checked onchange="applyDesign()" />
+                <span class="layout-visual two-col"></span>
+                <span>Two Column</span>
+              </label>
+              <label class="layout-option">
+                <input type="radio" name="layout" value="single-column" id="layoutOneCol" onchange="applyDesign()" />
+                <span class="layout-visual one-col"></span>
+                <span>Single Column</span>
+              </label>
+            </div>
+            <div class="layout-option-row">
+              <label>Left Column Width</label>
+              <input type="range" id="leftColWidth" min="28" max="45" value="36" oninput="updateSizeLabel('leftColWidth','leftColLabel'); applyDesign()" />
+              <span id="leftColLabel">36%</span>
+            </div>
+            <div class="layout-option-row">
+              <label>Photo Style</label>
+              <select id="photoStyle" onchange="applyDesign()">
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+                <option value="rounded">Rounded</option>
+                <option value="none">No Photo</option>
+              </select>
+            </div>
+            <div class="layout-option-row">
+              <label>Photo Size</label>
+              <input type="range" id="photoSize" min="60" max="140" value="100" oninput="updateSizeLabel('photoSize','photoSizeLabel'); applyDesign()" />
+              <span id="photoSizeLabel">100px</span>
+            </div>
+          </div>
+
+          <!-- Section Manager -->
+          <div class="design-card">
+            <h3 class="design-card-title">🧩 Section Manager</h3>
+            <p class="design-hint">Drag to reorder. Toggle to show/hide.</p>
+            <div class="section-manager-list" id="sectionManagerList">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Design Preview -->
+        <div class="design-preview-panel">
+          <div class="preview-toolbar">
+            <span class="preview-label">Live Preview</span>
+          </div>
+          <div class="preview-scroll-area">
+            <div class="preview-scale-wrapper" id="designPreviewWrapper" style="transform: scale(0.6); transform-origin: top center;">
+              <div class="cv-preview-page" id="cvDesignPreview">
+                <!-- Synced from main preview -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCREEN: Full Preview
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="screen" id="previewScreen">
+    <div class="preview-screen-layout">
+      <div class="preview-screen-toolbar">
+        <button class="back-btn" onclick="showScreen('editorScreen')">← Back to Editor</button>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="preview-label">Full Preview</span>
+          <span class="page-fit-badge">📄 Strict 1-Page A4</span>
+        </div>
+        <div class="preview-actions">
+          <button class="btn-toggle-margins" onclick="toggleSafeMarginGuide()" title="Toggle 2cm Safe Print Margin Guidelines">📐 Safe Margin</button>
+          <button class="btn-primary" onclick="saveCV()">💾 Save</button>
+          <button class="btn-primary" onclick="downloadPDF()" style="background:linear-gradient(135deg,#10b981,#059669);">⬇ Download PDF</button>
+          <button class="btn-primary" onclick="printCV()" style="background:linear-gradient(135deg,#6366f1,#4f46e5);">🖨 Print</button>
+        </div>
+      </div>
+      <div class="preview-screen-scroll">
+        <div class="preview-screen-page cv-preview-page" id="previewScreenPage">
+          <!-- Full preview rendered here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MODAL: Print / Export
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="printModal" style="display:none">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Export / Print CV</h3>
+        <button class="modal-close" onclick="closeModal('printModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <button class="export-option" onclick="downloadPDF(); closeModal('printModal')">
+          <span class="export-icon">⬇</span>
+          <div><strong>Download PDF</strong><small>Save CV as PDF file to your computer</small></div>
+        </button>
+        <button class="export-option" onclick="printCV(); closeModal('printModal')">
+          <span class="export-icon">🖨</span>
+          <div><strong>Print CV</strong><small>Use browser's print dialog</small></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Print Area (used exclusively by window.print via @media print) -->
+  <div id="printArea"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/preview.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/design.js"></script>
+  <script src="js/html2pdf.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

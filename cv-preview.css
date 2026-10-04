@@ -1,0 +1,758 @@
+/* ═══════════════════════════════════════════════════════════
+   CV PREVIEW PAGE STYLES
+   These styles apply INSIDE the CV preview "page" element.
+   They simulate a real A4 CV document.
+═══════════════════════════════════════════════════════════ */
+
+/* The A4 page container - Strictly Single A4 Page (210mm x 297mm) */
+.cv-preview-page {
+  /* Safe Print Margins: Top 2.0cm (76px), Bottom 2.0cm (76px) strictly for BOTH layouts, Sides ~1.05cm (40px) */
+  --cv-pad-top: 76px;             /* 2.0cm comfortable safe top margin */
+  --cv-pad-bottom: 76px;          /* 2.0cm guaranteed safe bottom margin */
+  --cv-pad-side: 40px;
+  --cv-gap-main: 8px;
+  --cv-sec-gap: 10px;
+  --cv-item-gap: 6px;
+  --cv-sec-title-mb: 6px;
+  --cv-sec-title-pb: 3px;
+  --cv-font-body: 8.5pt;
+  --cv-line-height: 1.35;
+  --cv-font-title: 9pt;
+  --cv-font-small: 7.5pt;
+  --cv-font-name: 28pt;
+  --cv-photo-size: 96px;
+  --cv-banner-pad-bottom: 16px;
+  --cv-bullet-gap: 1.5px;
+
+  width: 794px;   /* A4 at 96dpi */
+  height: 1122px; /* Exact A4 height at 96dpi */
+  max-height: 1122px;
+  background: white;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  font-size: var(--cv-font-body);
+  line-height: var(--cv-line-height);
+  color: #333;
+  font-family: 'Outfit', sans-serif;
+  box-sizing: border-box;
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
+/* Compact Tier 1 (~1.85cm Top, 2cm Bottom, ~1.0cm Sides) */
+.cv-preview-page.cv-compact-1 {
+  --cv-pad-top: 70px;
+  --cv-pad-bottom: 76px;   /* Always 2cm safe bottom */
+  --cv-pad-side: 38px;
+  --cv-gap-main: 6px;
+  --cv-sec-gap: 7px;
+  --cv-item-gap: 4.5px;
+  --cv-sec-title-mb: 5px;
+  --cv-sec-title-pb: 2px;
+  --cv-font-body: 8pt;
+  --cv-line-height: 1.3;
+  --cv-font-title: 8.5pt;
+  --cv-font-small: 7.2pt;
+  --cv-font-name: 24pt;
+  --cv-photo-size: 84px;
+  --cv-banner-pad-bottom: 12px;
+  --cv-bullet-gap: 1px;
+}
+
+/* Compact Tier 2 (~1.7cm Top, 2cm Bottom, ~0.95cm Sides) */
+.cv-preview-page.cv-compact-2 {
+  --cv-pad-top: 64px;
+  --cv-pad-bottom: 76px;   /* Always 2cm safe bottom */
+  --cv-pad-side: 36px;
+  --cv-gap-main: 5px;
+  --cv-sec-gap: 5px;
+  --cv-item-gap: 3.5px;
+  --cv-sec-title-mb: 4px;
+  --cv-sec-title-pb: 2px;
+  --cv-font-body: 7.5pt;
+  --cv-line-height: 1.25;
+  --cv-font-title: 8pt;
+  --cv-font-small: 6.8pt;
+  --cv-font-name: 21pt;
+  --cv-photo-size: 74px;
+  --cv-banner-pad-bottom: 10px;
+  --cv-bullet-gap: 0.5px;
+}
+
+/* Compact Tier 3 (~1.55cm Top, 2cm Bottom, ~0.9cm Sides) */
+.cv-preview-page.cv-compact-3 {
+  --cv-pad-top: 58px;
+  --cv-pad-bottom: 76px;   /* Always 2cm safe bottom */
+  --cv-pad-side: 34px;
+  --cv-gap-main: 4px;
+  --cv-sec-gap: 4px;
+  --cv-item-gap: 2.5px;
+  --cv-sec-title-mb: 3px;
+  --cv-sec-title-pb: 1.5px;
+  --cv-font-body: 7pt;
+  --cv-line-height: 1.2;
+  --cv-font-title: 7.5pt;
+  --cv-font-small: 6.5pt;
+  --cv-font-name: 18pt;
+  --cv-photo-size: 64px;
+  --cv-banner-pad-bottom: 8px;
+  --cv-bullet-gap: 0px;
+}
+
+/* Compact Tier 4 (~1.4cm Top, 2cm Bottom, minimum sides) */
+.cv-preview-page.cv-compact-4 {
+  --cv-pad-top: 52px;
+  --cv-pad-bottom: 76px;   /* Always 2cm safe bottom — never compromised */
+  --cv-pad-side: 32px;
+  --cv-gap-main: 3px;
+  --cv-sec-gap: 3px;
+  --cv-item-gap: 2px;
+  --cv-sec-title-mb: 2px;
+  --cv-sec-title-pb: 1px;
+  --cv-font-body: 6.5pt;
+  --cv-line-height: 1.15;
+  --cv-font-title: 7pt;
+  --cv-font-small: 6pt;
+  --cv-font-name: 16pt;
+  --cv-photo-size: 56px;
+  --cv-banner-pad-bottom: 6px;
+  --cv-bullet-gap: 0px;
+}
+
+/* Compact Tier 5 (Maximum Density Fit: ~1.25cm Top, 2cm Bottom) */
+.cv-preview-page.cv-compact-5 {
+  --cv-pad-top: 48px;
+  --cv-pad-bottom: 76px;   /* Always 2cm safe bottom */
+  --cv-pad-side: 30px;
+  --cv-gap-main: 2px;
+  --cv-sec-gap: 2px;
+  --cv-item-gap: 1.5px;
+  --cv-sec-title-mb: 2px;
+  --cv-sec-title-pb: 1px;
+  --cv-font-body: 6pt;
+  --cv-line-height: 1.1;
+  --cv-font-title: 6.5pt;
+  --cv-font-small: 5.5pt;
+  --cv-font-name: 14pt;
+  --cv-photo-size: 48px;
+  --cv-banner-pad-bottom: 4px;
+  --cv-bullet-gap: 0px;
+}
+
+/* ── Visual Safe Print Margin Guide Overlay ── */
+.cv-safe-margin-guide {
+  position: absolute;
+  top: var(--cv-pad-top);
+  bottom: var(--cv-pad-bottom);
+  left: var(--cv-pad-side);
+  right: var(--cv-pad-side);
+  border: 1.5px dashed rgba(99, 102, 241, 0.55);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 99;
+  display: none;
+  box-sizing: border-box;
+}
+.cv-safe-margin-guide::before {
+  content: 'Safe Print Zone (Top 2.0cm · Bottom 2.0cm · Sides 1.0cm)';
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 7pt;
+  font-family: 'Outfit', sans-serif;
+  color: #6366f1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.show-safe-margins .cv-safe-margin-guide {
+  display: block;
+}
+.show-safe-margins .cv-safe-margin-guide {
+  display: block;
+}
+
+/* ── TWO COLUMN LAYOUT (Single Page Fit) ── */
+.cv-page-two-col {
+  display: flex;
+  height: 1122px;
+  max-height: 1122px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cv-left-col {
+  flex-shrink: 0;
+  min-height: 100%;
+  padding: var(--cv-pad-top) var(--cv-pad-side) var(--cv-pad-bottom) var(--cv-pad-side);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-sizing: border-box;
+  /* color set dynamically */
+}
+
+.cv-right-col {
+  flex: 1;
+  min-height: 100%;
+  padding: var(--cv-pad-top) var(--cv-pad-side) var(--cv-pad-bottom) var(--cv-pad-side);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* ── SINGLE COLUMN LAYOUT (Single Page Fit) ── */
+.cv-page-single-col {
+  height: 1046px; /* 1122px - 76px (strictly leaving 2cm bottom safe margin) */
+  max-height: 1046px;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* ── Header (top banner in single column) ── */
+.cv-header-banner {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: var(--cv-pad-top) var(--cv-pad-side) var(--cv-banner-pad-bottom, 16px) var(--cv-pad-side);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ── Body content below banner in single column ── */
+.cv-single-col-body {
+  flex: 1;
+  overflow: hidden;
+  padding: var(--cv-gap-main) var(--cv-pad-side) 0 var(--cv-pad-side);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* ── Single-column horizontal space optimizations ── */
+.cv-page-single-col .cv-contact-list {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 3px 16px !important;
+}
+.cv-page-single-col .cv-contact-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.cv-page-single-col .cv-detail-list {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--cv-item-gap) 14px !important;
+}
+
+.cv-page-single-col .cv-skills-list {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--cv-item-gap) 20px !important;
+}
+
+.cv-page-single-col .cv-references-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+}
+
+.cv-page-single-col .cv-subjects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2px 14px !important;
+}
+
+/* ── Dynamic Photo Wrap (Circle, Rounded, Square) ── */
+.cv-photo-wrap {
+  width: var(--cv-photo-size, 96px);
+  height: var(--cv-photo-size, 96px);
+  flex-shrink: 0;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-radius 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+.cv-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+.cv-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0.4;
+}
+
+/* ── Name & Title block ── */
+.cv-name-block {
+  padding-top: 2px;
+}
+.cv-full-name {
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  word-break: break-word;
+  padding-top: 2px;
+}
+.cv-job-title {
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+/* ── Section block: groups title + content, adds visual breathing room ── */
+.cv-section-block {
+  padding-top: var(--cv-sec-gap, 10px);
+  flex-shrink: 0;
+}
+/* First section block: no top padding (it's already at column top) */
+.cv-left-col > .cv-section-block:first-child,
+.cv-right-col > .cv-section-block:first-child,
+.cv-single-col-body > .cv-section-block:first-child {
+  padding-top: 0;
+}
+
+/* ── Section titles ── */
+.cv-section-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--cv-font-title);
+  padding-bottom: var(--cv-sec-title-pb);
+  margin-bottom: var(--cv-sec-title-mb);
+  position: relative;
+}
+.cv-section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  /* color set by JS */
+}
+
+/* Left column section title (for dark bg) */
+.cv-section-title.light::after { opacity: 0.3; }
+
+/* ── Contact items ── */
+.cv-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-item-gap);
+  list-style: none;
+}
+.cv-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--cv-font-small);
+  line-height: var(--cv-line-height);
+  word-break: break-all;
+}
+.cv-contact-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cv-contact-icon svg {
+  width: 11px;
+  height: 11px;
+  display: block;
+}
+
+/* ── Personal detail rows ── */
+.cv-detail-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-item-gap);
+}
+.cv-detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: var(--cv-font-small);
+}
+.cv-detail-label {
+  font-weight: 600;
+  opacity: 0.7;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  font-size: var(--cv-font-small);
+  letter-spacing: 0.03em;
+}
+.cv-detail-value {
+  text-align: right;
+  flex: 1;
+  word-break: break-word;
+}
+
+/* ── Career Objective ── */
+.cv-objective-text {
+  font-size: var(--cv-font-body);
+  line-height: var(--cv-line-height);
+  text-align: justify;
+  margin: 0;
+}
+
+/* ── Education entries ── */
+.cv-edu-entry {
+  margin-bottom: var(--cv-item-gap);
+}
+.cv-edu-entry:last-child { margin-bottom: 0; }
+.cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 1px;
+}
+.cv-entry-title {
+  font-weight: 700;
+  font-size: var(--cv-font-title);
+}
+.cv-entry-year {
+  font-size: var(--cv-font-small);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.cv-entry-subtitle {
+  font-size: var(--cv-font-small);
+  opacity: 0.75;
+  margin-bottom: 2px;
+}
+.cv-subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px 8px;
+  margin-top: 2px;
+}
+.cv-subject-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--cv-font-small);
+  padding: 1px 0;
+  border-bottom: 0.5px solid rgba(0,0,0,0.07);
+}
+.cv-subject-name { opacity: 0.8; }
+.cv-subject-grade { font-weight: 600; }
+
+/* ── Experience ── */
+.cv-exp-entry { margin-bottom: var(--cv-item-gap); }
+.cv-exp-entry:last-child { margin-bottom: 0; }
+.cv-exp-type-badge {
+  display: inline-block;
+  font-size: var(--cv-font-small);
+  padding: 0px 5px;
+  border-radius: 3px;
+  margin-bottom: 2px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.cv-bullet-list {
+  list-style: none;
+  margin: 2px 0 0 0;
+  padding: 0;
+}
+.cv-bullet-list li {
+  font-size: var(--cv-font-body);
+  padding: var(--cv-bullet-gap) 0 var(--cv-bullet-gap) 12px;
+  position: relative;
+  line-height: var(--cv-line-height);
+}
+.cv-bullet-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  opacity: 0.5;
+  font-size: 7pt;
+}
+
+/* ── Skills / Progress bars ── */
+.cv-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-item-gap);
+}
+.cv-skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cv-skill-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--cv-font-small);
+}
+.cv-skill-name { font-weight: 600; }
+.cv-skill-pct { font-size: var(--cv-font-small); opacity: 0.7; }
+.cv-skill-track {
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.cv-skill-fill {
+  height: 100%;
+  border-radius: 3px;
+  /* width + background set by JS */
+}
+
+/* ── Languages ── */
+.cv-lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-item-gap);
+}
+.cv-lang-entry { font-size: var(--cv-font-small); }
+.cv-lang-name { font-weight: 700; margin-bottom: 2px; }
+.cv-lang-levels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.cv-lang-level-cell {
+  text-align: center;
+  font-size: 6pt;
+  opacity: 0.7;
+}
+.cv-lang-level-label { font-weight: 600; opacity: 0.5; font-size: 5.5pt; text-transform: uppercase; }
+.cv-lang-bar {
+  height: 3px;
+  border-radius: 2px;
+  margin-top: 1px;
+}
+
+/* ── Activities / Hobbies ── */
+.cv-activity-entry {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+  font-size: var(--cv-font-body);
+  line-height: var(--cv-line-height);
+  margin-bottom: var(--cv-item-gap);
+}
+.cv-activity-bullet {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.cv-hobbies-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.cv-hobby-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 16px;
+  border: 1px solid;
+  font-size: var(--cv-font-small);
+}
+
+/* ── References ── */
+.cv-references-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--cv-item-gap);
+}
+.cv-reference-card {
+  padding: var(--cv-item-gap);
+  border-left: 3px solid;
+  font-size: var(--cv-font-small);
+}
+.cv-ref-name { font-weight: 700; font-size: var(--cv-font-title); margin-bottom: 1px; }
+.cv-ref-title { opacity: 0.75; margin-bottom: 1px; }
+.cv-ref-company { font-weight: 600; margin-bottom: 3px; }
+.cv-ref-contact { display: flex; flex-direction: column; gap: 1px; }
+.cv-ref-contact span { opacity: 0.7; }
+
+/* ── Declaration ── */
+.cv-declaration-text {
+  font-size: var(--cv-font-small);
+  line-height: var(--cv-line-height);
+  font-style: italic;
+  text-align: justify;
+}
+
+/* ── Signature block ── */
+.cv-signature-block {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.cv-signature-img {
+  height: 50px;
+  object-fit: contain;
+}
+.cv-signature-name { font-size: 8.5pt; font-weight: 700; }
+.cv-signature-date, .cv-signature-place { font-size: 8pt; opacity: 0.7; }
+.cv-signature-line {
+  width: 160px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.3;
+  margin-bottom: 4px;
+}
+
+/* ── Section divider in right col ── */
+.cv-section-gap { margin-bottom: var(--cv-sec-gap); }
+
+/* ── Soft skills (tag cloud style) ── */
+.cv-softskill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.cv-softskill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-size: 7.5pt;
+  font-weight: 600;
+  border: 1px solid;
+  opacity: 0.9;
+}
+
+/* ── Technical Skills ── */
+.cv-techskill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.cv-techskill-item {
+  font-size: 8pt;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.04);
+}
+
+/* ── STRICT SINGLE A4 PRINT STYLES ── */
+#printArea {
+  display: none;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+}
+
+@media print {
+  html, body {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything except #printArea */
+  body > *:not(#printArea) {
+    display: none !important;
+  }
+
+  /* Show ONLY #printArea at exact A4 dimensions */
+  body > #printArea {
+    display: block !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: white !important;
+    z-index: 999999 !important;
+  }
+
+  #printArea .cv-preview-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-after: avoid !important;
+    break-inside: avoid !important;
+    position: relative !important;
+  }
+
+  #printArea .cv-page-two-col {
+    height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+  }
+
+  #printArea .cv-page-single-col {
+    height: auto !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+  }
+
+  #printArea .cv-left-col,
+  #printArea .cv-right-col {
+    min-height: 297mm !important;
+  }
+
+  #printArea .cv-bottom-spacer {
+    height: 76px !important;
+    min-height: 76px !important;
+    flex-shrink: 0 !important;
+  }
+
+  #printArea .cv-safe-margin-guide {
+    display: none !important;
+  }
+}
+
